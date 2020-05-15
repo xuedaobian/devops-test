@@ -12,16 +12,14 @@ jobs:
         node-version: '10.x'
     - name: npm install # 安装函数的依赖
       run: cd cloudfunc && npm install
-    - name: pip --version
-      run: pip --version
     - name: install SCF CLI # 安装SCF CLI
       run: sudo npm install serverless
     - name: scf configure # scf cofigure, 配置appid, 地域和api秘钥等信息
       env: 
         APPID: 1258774696
         REGION: ap-guangzhou
-        SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }} # 值存放在第二步所说的secrets中
-        SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }} # 同上
+        SECRET_ID: ${{ secrets.TENCENT_CLOUD_SECRET_ID }} # 值存放在第二步所说的secrets中
+        SECRET_KEY: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }} # 同上
       run: sls configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
     - name: scf deploy # scf deploy
-      run: sls deploy -t ./cloudfunc/serverless.yaml -f
+      run: cd cloudfunc && sls deploy
