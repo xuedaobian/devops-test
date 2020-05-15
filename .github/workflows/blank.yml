@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest # 执行环境为ubuntu-latest
     steps:
-    - uses: actions/checkout@v1 # 现成actions，获取源码
+    - uses: actions/checkout@v2 # 现成actions，获取源码
     - uses: actions/setup-node@v1 # 安装nodejs，版本指定10
       with:
         node-version: '10.x'
@@ -20,6 +20,6 @@ jobs:
         REGION: ap-guangzhou
         SECRET_ID: ${{ secrets.TENCENT_CLOUD_SECRET_ID }} # 值存放在第二步所说的secrets中
         SECRET_KEY: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }} # 同上
-      run: sls configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
+      run: serverless configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
     - name: scf deploy # scf deploy
-      run: cd cloudfunc && sls deploy
+      run: cd cloudfunc && serverless deploy
