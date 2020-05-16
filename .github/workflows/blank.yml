@@ -11,15 +11,14 @@ jobs:
       with:
         node-version: '10.x'
     - name: npm install # 安装函数的依赖
-      run: cd cloudfunc && npm install
-    - name: install SCF CLI # 安装SCF CLI
-      run: sudo npm install serverless
-    - name: scf configure # scf cofigure, 配置appid, 地域和api秘钥等信息
+      run: cd ga && npm install
+    - name: install TCB CLI # TCB CLI
+      run: sudo npm i -g @cloudbase/cli
+    - name: tcb login # scf cofigure, 配置appid, 地域和api秘钥等信息
       env: 
-        APPID: 1258774696
-        REGION: ap-guangzhou
+        ENV_ID: dev-test-0fyhq
         SECRET_ID: ${{ secrets.TENCENT_CLOUD_SECRET_ID }} # 值存放在第二步所说的secrets中
         SECRET_KEY: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }} # 同上
-      run: serverless configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
-    - name: scf deploy # scf deploy
-      run: cd cloudfunc && serverless deploy
+      run: tcb login --apiKeyId SECRET_ID --apiKey SECRET_KEY
+    - name: cf deploy # cf deploy
+      run: cloudbase functions:deploy dev --force

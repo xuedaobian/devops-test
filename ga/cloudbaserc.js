@@ -3,7 +3,7 @@ module.exports = {
     functionRoot: "./functions",
     functions: [
         {
-            name: "app",
+            name: "gahello",
             // 超时时间
             timeout: 5,
             // 环境变量
