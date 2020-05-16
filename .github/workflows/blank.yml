@@ -22,4 +22,4 @@ jobs:
     - name: cf deploy # cf deploy
       env: 
         ENV_ID: dev-test-0fyhq
-      run: cd ga/ && cloudbase functions:deploy --force -e ENV_ID
+      run: cd ga/ && cloudbase functions:deploy gahello --force -e ENV_ID
