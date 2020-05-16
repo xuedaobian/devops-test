@@ -16,9 +16,10 @@ jobs:
       run: sudo npm i -g @cloudbase/cli
     - name: tcb login # scf cofigure, 配置appid, 地域和api秘钥等信息
       env: 
-        ENV_ID: dev-test-0fyhq
         SECRET_ID: ${{ secrets.TENCENT_CLOUDBASE_SECRET_ID }} # 值存放在第二步所说的secrets中
         SECRET_KEY: ${{ secrets.TENCENT_CLOUDBASE_SECRET_KEY }} # 同上
       run: tcb login --apiKeyId SECRET_ID --apiKey SECRET_KEY
     - name: cf deploy # cf deploy
-      run: cloudbase functions:deploy dev --force
+      env: 
+        ENV_ID: dev-test-0fyhq
+      run: cd ga/ && cloudbase functions:deploy --force -e ENV_ID

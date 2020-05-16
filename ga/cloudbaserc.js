@@ -12,6 +12,14 @@ module.exports = {
             // 内存 128
             memorySize: 128,
             handler: "index.main"
+        },
+        {
+            name:"gaworld",
+            timeout: 5,
+            envVariables: {},
+            runtime: "Nodejs10.15",
+            memorySize:128,
+            handler: "index.main"
         }
     ]
 };
