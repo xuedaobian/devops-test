@@ -19,8 +19,8 @@ jobs:
         SECRET_ID: ${{ secrets.TENCENT_CLOUDBASE_SECRET_ID }} # 值存放在第二步所说的secrets中
         SECRET_KEY: ${{ secrets.TENCENT_CLOUDBASE_SECRET_KEY }} # 同上
       # run: tcb login --apiKeyId SECRET_ID --apiKey SECRET_KEY
-      run: tcb login --apiKeyId AKIDLRnWzEVQ9ua8pMbGdluoTChypQn9b70e --apiKey xxx
+      run: tcb login --apiKeyId AKIDLRnWzEVQ9ua8pMbGdluoTChypQn9b70e --apiKey SECRET_KEY
     - name: cf deploy # cf deploy
       env: 
         ENV_ID: dev-test-0fyhq
-      run: cd ga/ && cloudbase functions:deploy gahello --force -e ENV_ID
+      run: cd ga && cloudbase functions:deploy gahello --force -e ENV_ID
