@@ -10,17 +10,14 @@ jobs:
     - uses: actions/setup-node@v1 # 安装nodejs，版本指定10
       with:
         node-version: '10.x'
-    - name: npm install # 安装函数的依赖
-      run: cd ga && npm install
-    - name: install TCB CLI # TCB CLI
-      run: sudo npm i -g @cloudbase/cli
-    - name: tcb login # scf cofigure, 配置appid, 地域和api秘钥等信息
-      env: 
+    - name: Deploy static to Tencent CloudBase
+      id: deployStatic
+      uses: TencentCloudBase/cloudbase-action@v1.1.0
+      with:
         SECRET_ID: ${{ secrets.TENCENT_CLOUDBASE_SECRET_ID }} # 值存放在第二步所说的secrets中
         SECRET_KEY: ${{ secrets.TENCENT_CLOUDBASE_SECRET_KEY }} # 同上
-      # run: tcb login --apiKeyId SECRET_ID --apiKey SECRET_KEY
-      run: tcb login --apiKeyId AKIDLRnWzEVQ9ua8pMbGdluoTChypQn9b70e --apiKey SECRET_KEY
+        ENV_ID: dev-test-0fyhq
     - name: cf deploy # cf deploy
       env: 
         ENV_ID: dev-test-0fyhq
-      run: cd ga && cloudbase functions:deploy gahello --force -e ENV_ID
+      run: cloudbase functions:deploy gahello --force --all -e ENV_ID
