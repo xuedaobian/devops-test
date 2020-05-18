@@ -14,9 +14,9 @@ jobs:
       id: deployStatic
       uses: TencentCloudBase/cloudbase-action@v1.1.0
       with:
-        SECRET_ID: ${{ secrets.TENCENT_CLOUDBASE_SECRET_ID }} # 值存放在第二步所说的secrets中
-        SECRET_KEY: ${{ secrets.TENCENT_CLOUDBASE_SECRET_KEY }} # 同上
-        ENV_ID: dev-test-0fyhq
+        secretId: ${{ secrets.TENCENT_CLOUDBASE_SECRET_ID }} # 值存放在第二步所说的secrets中
+        secretKey: ${{ secrets.TENCENT_CLOUDBASE_SECRET_KEY }} # 同上
+        envId: dev-test-0fyhq
     - name: cf deploy # cf deploy
       env: 
         ENV_ID: dev-test-0fyhq
