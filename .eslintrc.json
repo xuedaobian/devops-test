@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "google"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "rules": {
+        "rules":{
+            "no-dupe-keys": "error",
+            "no-duplicate-case": "error",
+            "no-empty": ["error", {"allowEmptyCatch": true}],
+            "no-ex-assign":"error",
+            "no-extra-boolean-cast": "error",
+            "no-extra-semi": "error",
+            "curly": "error"
+          }
+    }
+}

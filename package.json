@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "test": "echo \"Error: I SHOULD FAIL LOLOLOLOLOL \" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    },
+    "src/**": [
+      "eslint --fix --ext .js",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "husky": "^4.2.5",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.0.5"
+  }
+}
