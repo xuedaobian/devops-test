@@ -11,7 +11,8 @@ module.exports = {
             runtime: "Nodejs10.15",
             // 内存 128
             memorySize: 128,
-            handler: "index.main"
+            handler: "index.main",
+            installDependency:true
         },
         {
             name:"gaworld",
@@ -19,7 +20,8 @@ module.exports = {
             envVariables: {},
             runtime: "Nodejs10.15",
             memorySize:128,
-            handler: "index.main"
+            handler: "index.main",
+            installDependency:true
         }
     ]
 };
