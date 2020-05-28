@@ -27,6 +27,7 @@ exports.main = async(event, context) => {
     openid: wxContext.OPENID,
     appid: wxContext.APPID,
     unionid: wxContext.UNIONID,
-    str: 'youyishuowoyiwonasjdfbakdjfbksjadfkjsa'
+    str: 'youyishuowoyiwonasjdfbakdjfbksjadfkjsa',
+    str2: '超过我的有限相像。。。'
   }
 }
