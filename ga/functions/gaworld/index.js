@@ -28,5 +28,6 @@ exports.main = async(event, context) => {
     openid: wxContext.OPENID,
     appid: wxContext.APPID,
     unionid: wxContext.UNIONID,
+    str:'我是world也是you'
   }
 }
