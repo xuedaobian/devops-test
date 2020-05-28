@@ -1,4 +1,5 @@
 cd ./functions
+echo '开始执行ls.sh文件'
 newlog=`eval "git rev-parse --short HEAD"`
 for dir in $(ls ./)
 do
